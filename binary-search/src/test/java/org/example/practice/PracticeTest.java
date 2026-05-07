@@ -11,6 +11,7 @@ public class PracticeTest{
 
 
 
+
     @ParameterizedTest(name="Test Square root problem")
     @CsvSource(
             {
@@ -20,4 +21,5 @@ public class PracticeTest{
     void testMySqrt(int input, int expected) {
         assertEquals(expected,this.practice.mySqrt(input));
     }
+
 }
