@@ -1,5 +1,7 @@
 package org.example.practice;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -20,6 +22,14 @@ public class PracticeTest{
             })
     void testMySqrt(int input, int expected) {
         assertEquals(expected,this.practice.mySqrt(input));
+    }
+
+    @Test
+    @DisplayName("Should test display name method")
+    void testSearch() {
+        int[] nums={3,1};
+        int target=1;
+        assertEquals(1, this.practice.search(nums,target));
     }
 
 }
