@@ -32,4 +32,12 @@ public class PracticeTest{
         assertEquals(1, this.practice.search(nums,target));
     }
 
+    @Test
+    void testPeakElement(){
+        int[] nums={1,2};
+        int expected=1;
+        assertEquals(expected,this.practice.findPeakElement(nums));
+    }
+
+
 }
