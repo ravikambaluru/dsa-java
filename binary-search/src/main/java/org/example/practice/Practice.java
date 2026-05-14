@@ -221,4 +221,22 @@ public class Practice {
         }
         return l;
     }
+
+    /**
+     * LeetCode #153
+     * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
+     * Input: nums = [3,4,5,1,2]
+     * Output: 1
+     * Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+     */
+    public int findMin(int[] nums) {
+        int l=0;
+        int r=nums.length-1;
+        while(l<r){
+            int mid=l+(r-l)/2;
+            if(nums[mid]>nums[r])l=mid+1;
+            else r=mid;
+        }
+        return nums[l];
+    }
 }
