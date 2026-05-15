@@ -1,5 +1,6 @@
 package org.example.practice;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -43,6 +44,12 @@ public class PracticeTest{
         int[] nums={2,3,4,5,1};
         int expected=1;
         assertEquals(expected,this.practice.findMin(nums));
+    }
+
+    @Test
+    void testSearchRange(){
+        int[] nums={2,2};
+        Assertions.assertArrayEquals(new int[]{0, 1},this.practice.searchRange(nums,2));
     }
 
 
