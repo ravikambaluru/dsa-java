@@ -52,5 +52,17 @@ public class PracticeTest{
         Assertions.assertArrayEquals(new int[]{0, 1},this.practice.searchRange(nums,2));
     }
 
+    @Test
+    void testPeakInMountainArray(){
+        int[] arr={0,3,5,12,2};
+        Assertions.assertEquals(3,this.practice.peakIndexInMountainArray(arr));
+    }
+    @Test
+    void testsingleNonDuplicate(){
+        int [] nums= {1,1,2,3,3,4,4,8,8};
+        assertEquals(2, this.practice.singleNonDuplicate(nums));
+    }
+
+
 
 }

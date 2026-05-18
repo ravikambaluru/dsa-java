@@ -224,7 +224,7 @@ public class Practice {
 
     /**
      * LeetCode #153
-     * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
+     * <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/">...</a>
      * Input: nums = [3,4,5,1,2]
      * Output: 1
      * Explanation: The original array was [1,2,3,4,5] rotated 3 times.
@@ -267,4 +267,36 @@ public class Practice {
         return searchPos;
     }
 
+
+    /**
+     * LeetCode #852
+     * <a href="https://leetcode.com/problems/peak-index-in-a-mountain-array/">...</a>
+     *
+     */
+    public int peakIndexInMountainArray(int[] arr) {
+        int l=0;
+        int r=arr.length-1;
+        while(l<r){
+            int m=l+(r-l)/2;
+            if(arr[m]<arr[m+1]) l=m+1;
+            else r=m;
+        }
+        return l;
+    }
+
+    /**
+     * LeetCode #540
+     * <a href="https://leetcode.com/problems/single-element-in-a-sorted-array/description/"></a>
+     */
+    public int singleNonDuplicate(int[] nums) {
+
+        int l=0,r=nums.length-1;
+        while(l<r){
+            int mid=l+(r-l)/2;
+            if(nums[mid-1]!=nums[mid]&&nums[mid+1]!=nums[mid])return nums[mid];
+            if(nums[mid-1]==nums[mid]&&((mid-1)%2!=0))r=mid-2;
+            if(nums[mid+1]==nums[mid]&&((r-mid)%2!=0))l=mid+2;
+        }
+        return nums[l];
+    }
 }
