@@ -8,7 +8,6 @@
     </parent>
 
     <artifactId>binary-search</artifactId>
-    <packaging>jar</packaging>
 
     <name>binary-search</name>
     <url>http://maven.apache.org</url>
