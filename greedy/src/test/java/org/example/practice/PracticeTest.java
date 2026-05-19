@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PracticeTest {
+class PracticeTest{
     private final Practice practice;
     public PracticeTest() {
         this.practice = new Practice();
@@ -22,5 +22,11 @@ class PracticeTest {
         int[] greedArray={1,2, 3};
         int[] sizeArray={1,1};
         assertEquals(1,this.practice.findContentChildren(greedArray,sizeArray));
+    }
+
+    @Test
+    void lemonadeChange() {
+        int [] bills={5,5,5,10,20};
+        assertEquals(true,this.practice.lemonadeChange(bills));
     }
 }

@@ -49,4 +49,41 @@ public class Practice {
         }
         return maxContent;
     }
+
+    /**
+     * LeetCode #860
+     * Input: bills = [5,5,5,10,20]
+     * Output: true
+     */
+    public boolean lemonadeChange(int[] bills) {
+        int fiveBill=0;
+        int tenBill=0;
+        int twentyBill=0;
+        for(int bill: bills){
+
+            // deposit bill
+            if(bill==5)fiveBill++;
+            else if(bill==10)tenBill++;
+            else twentyBill++;
+
+            int change=bill-5;
+            int twentyDenominations = change / 20;
+            if(twentyDenominations <=twentyBill){
+                change-= twentyDenominations *20;
+                twentyBill-=twentyDenominations;
+            }
+            int tenDenominations = change / 10;
+            if(tenDenominations <=tenBill){
+                change-= tenDenominations *10;
+                tenBill-=tenDenominations;
+            }
+            int fiveDenominations = change / 5;
+            if(fiveDenominations <=fiveBill){
+                change-= fiveDenominations *5;
+                fiveBill-=fiveDenominations;
+            }
+            if(change>0)return false;
+        }
+        return true;
+    }
 }
