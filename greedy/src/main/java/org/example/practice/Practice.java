@@ -58,31 +58,20 @@ public class Practice {
     public boolean lemonadeChange(int[] bills) {
         int fiveBill=0;
         int tenBill=0;
-        int twentyBill=0;
         for(int bill: bills){
+            if(bill==5) fiveBill++;
 
-            // deposit bill
-            if(bill==5)fiveBill++;
-            else if(bill==10)tenBill++;
-            else twentyBill++;
-
-            int change=bill-5;
-            int twentyDenominations = change / 20;
-            if(twentyDenominations <=twentyBill){
-                change-= twentyDenominations *20;
-                twentyBill-=twentyDenominations;
+            else if(bill==10){
+                if (fiveBill<1) return false;
+                fiveBill--;
+                tenBill++;
+            } else{
+                if(tenBill>0 && fiveBill>=1){
+                    tenBill--;
+                    fiveBill--;
+                }else if(fiveBill>=3) fiveBill-=3;
+                else return false;
             }
-            int tenDenominations = change / 10;
-            if(tenDenominations <=tenBill){
-                change-= tenDenominations *10;
-                tenBill-=tenDenominations;
-            }
-            int fiveDenominations = change / 5;
-            if(fiveDenominations <=fiveBill){
-                change-= fiveDenominations *5;
-                fiveBill-=fiveDenominations;
-            }
-            if(change>0)return false;
         }
         return true;
     }

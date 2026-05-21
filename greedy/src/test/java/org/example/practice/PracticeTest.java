@@ -26,7 +26,7 @@ class PracticeTest{
 
     @Test
     void lemonadeChange() {
-        int [] bills={5,5,5,10,20};
+        int [] bills={5,5,10,5,20,5,5,5,5,5,20,5,10,5,5,5,5,20,20,5};
         assertEquals(true,this.practice.lemonadeChange(bills));
     }
 }
