@@ -75,4 +75,19 @@ public class Practice {
         }
         return true;
     }
+
+    /**
+     * LeetCode #122
+     * @param prices
+     * @return
+     */
+    public int maxProfit(int[] prices) {
+        int sharePrice=0;
+        int maxProfit=0;
+        for(int i=1;i<prices.length;i++){
+            sharePrice=Math.min(prices[i],prices[i-1]);
+            if(prices[i]>prices[i-1])maxProfit+=prices[i]-sharePrice;
+        }
+        return maxProfit;
+    }
 }

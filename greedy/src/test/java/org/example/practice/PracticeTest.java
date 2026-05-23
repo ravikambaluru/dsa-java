@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PracticeTest{
+class PracticeTest {
     private final Practice practice;
     public PracticeTest() {
         this.practice = new Practice();
@@ -28,5 +28,11 @@ class PracticeTest{
     void lemonadeChange() {
         int [] bills={5,5,10,5,20,5,5,5,5,5,20,5,10,5,5,5,5,20,20,5};
         assertEquals(true,this.practice.lemonadeChange(bills));
+    }
+
+    @Test
+    void maxProfit() {
+        int[] prices= {7,1,5,3,6,4};
+        assertEquals(7, this.practice.maxProfit(prices));
     }
 }
