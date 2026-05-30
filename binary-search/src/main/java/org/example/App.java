@@ -3,7 +3,7 @@ package org.example;
 import org.example.practice.Practice;
 
 /**
- * Hello world!
+Hello world!
  *
  */
 public class App 

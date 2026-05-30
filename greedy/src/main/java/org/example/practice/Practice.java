@@ -6,16 +6,16 @@ public class Practice {
 
 
     /**
-     * Leet Code #1029
-     * Input: costs = [[10,20],[30,200],[400,50],[30,20]]
-     * Output: 110
-     * Explanation:
-     * The first person goes to city A for a cost of 10.
-     * The second person goes to city A for a cost of 30.
-     * The third person goes to city B for a cost of 50.
-     * The fourth person goes to city B for a cost of 20.
-     * @param costs
-     * @return
+    Leet Code #1029
+    Input: costs = [[10,20],[30,200],[400,50],[30,20]]
+    Output: 110
+    Explanation:
+    The first person goes to city A for a cost of 10.
+    The second person goes to city A for a cost of 30.
+    The third person goes to city B for a cost of 50.
+    The fourth person goes to city B for a cost of 20.
+    @param costs
+    @return
      */
     public int twoCitySchedCost(int[][] costs) {
         int minCost=0;
@@ -28,9 +28,9 @@ public class Practice {
     }
 
     /**
-     * LeetCode #455
-     * Input: g = [1,2,3], s = [1,1]
-     * Output: 1
+    LeetCode #455
+    Input: g = [1,2,3], s = [1,1]
+    Output: 1
      */
     public int findContentChildren(int[] g, int[] s) {
         int maxContent=0, greedIndex=0, sizeIndex=0;
@@ -51,9 +51,9 @@ public class Practice {
     }
 
     /**
-     * LeetCode #860
-     * Input: bills = [5,5,5,10,20]
-     * Output: true
+    LeetCode #860
+    Input: bills = [5,5,5,10,20]
+    Output: true
      */
     public boolean lemonadeChange(int[] bills) {
         int fiveBill=0;
@@ -77,9 +77,9 @@ public class Practice {
     }
 
     /**
-     * LeetCode #122
-     * @param prices
-     * @return
+    LeetCode #122
+    @param prices
+    @return
      */
     public int maxProfit(int[] prices) {
         int sharePrice=0;
