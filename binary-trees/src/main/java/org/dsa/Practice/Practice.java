@@ -48,6 +48,21 @@ public class Practice {
         answer.add(node.val);
     }
 
+
+
+    private void traverseInorder(TreeNode node, List<Integer> answer) {
+        if(node == null)return;
+        traverseInorder(node.left, answer);
+        answer.add(node.val);
+        traverseInorder(node.right, answer);
+    }
+
+    private void traversePreOrder(TreeNode node, List<Integer> array){
+        if(node == null) return;
+        array.add(node.val);
+        traversePreOrder(node.left,array);
+        traversePreOrder(node.right,array);
+    }
     private List<Integer> traversePreOrderIterative(TreeNode root, List<Integer> array){
         if(root!= null){
             Stack<TreeNode> callStack = new Stack<>();
@@ -64,20 +79,6 @@ public class Practice {
         return array;
     }
 
-    private void traverseInorder(TreeNode node, List<Integer> answer) {
-        if(node == null)return;
-        traverseInorder(node.left, answer);
-        answer.add(node.val);
-        traverseInorder(node.right, answer);
-    }
-
-    private void traversePreOrder(TreeNode node, List<Integer> array){
-        if(node == null) return;
-        array.add(node.val);
-        traversePreOrder(node.left,array);
-        traversePreOrder(node.right,array);
-    }
-
     private void traverseInorderIterative(TreeNode node, List<Integer> array){
         if(node == null) return ;
         Stack<TreeNode> callStack = new Stack<>();
@@ -91,6 +92,23 @@ public class Practice {
             array.add(currentNode.val);
             currentNode=currentNode.right;
         }
+    }
+
+    private void traversePostorderIterative(TreeNode node, List<Integer> array){
+        if(node==null) return ;
+        Stack<TreeNode> childrenStack = new Stack<>();
+        Stack<Integer> answerStack = new Stack<>();
+        childrenStack.push(node);
+        while(!childrenStack.isEmpty()){
+            TreeNode current = childrenStack.pop();
+            answerStack.push(current.val);
+            if(current.left!=null)childrenStack.push(current.left);
+            if(current.right!=null)childrenStack.push(current.right);
+        }
+        while(!answerStack.isEmpty()){
+            array.add(answerStack.pop());
+        }
+
     }
 
 }
