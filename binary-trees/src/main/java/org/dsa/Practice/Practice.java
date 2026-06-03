@@ -110,5 +110,24 @@ public class Practice {
         }
 
     }
+    private void traversePostorderIterativeOneStack(TreeNode node, List<Integer> array){
+        if(node==null) return ;
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode currentNode=node;
+        TreeNode lastVisitedNode=node;
+        while(!stack.isEmpty()||currentNode!=null){
+            while(currentNode!=null){
+                stack.push(currentNode);
+                currentNode=currentNode.left;
+            }
+            TreeNode peakNode=stack.peek();
+            if(peakNode.right!=null && peakNode.right != lastVisitedNode){
+                currentNode=peakNode.right;
+            }else {
+                array.add(peakNode.val);
+                lastVisitedNode=stack.pop();
+            }
+        }
+    }
 
 }
