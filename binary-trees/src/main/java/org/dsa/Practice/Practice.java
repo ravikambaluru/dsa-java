@@ -1,8 +1,6 @@
 package org.dsa.Practice;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Practice {
 
@@ -38,6 +36,33 @@ public class Practice {
     public List<Integer> postorderTraversal(TreeNode root) {
         ArrayList<Integer> answer = new ArrayList<>();
         traversePostorder(root, answer);
+        return answer;
+    }
+
+    /**
+     * LeetCode 102 Level Order traversal
+     * BFS Iterative approach
+     */
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> answer = new ArrayList<>();
+        ArrayDeque<TreeNode> q1 = new ArrayDeque<>();
+
+        if(root != null){
+            q1.offer(root);
+            while(!q1.isEmpty()){
+                ArrayList<Integer> levelArray = new ArrayList<>();
+                int size= q1.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode currentNode=q1.poll();
+                    if(currentNode.left!=null)q1.offer(currentNode.left);
+                    if(currentNode.right!=null)q1.offer(currentNode.right);
+                    levelArray.add(currentNode.val);
+                }
+                answer.add(levelArray);
+            }
+
+        }
         return answer;
     }
 
