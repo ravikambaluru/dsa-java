@@ -71,6 +71,17 @@ public class Practice {
         return ans;
     }
 
+    public int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+        return goBFS(root, 1);
+    }
+    private int goBFS(TreeNode node, int level){
+        int leftMaxDepth=-1, rightMaxDepth=-1;
+        if(node.left !=null) leftMaxDepth=goBFS(node.left, level+1);
+        if(node.right !=null) rightMaxDepth=goBFS(node.right, level+1);
+        return Math.max(Math.max(level, leftMaxDepth), rightMaxDepth);
+    }
+
     private void traverseBFS(TreeNode root, int level, List<List<Integer>> ans){
         if(root == null) return;
         if(level>ans.size())ans.add(level,new ArrayList<Integer>());
