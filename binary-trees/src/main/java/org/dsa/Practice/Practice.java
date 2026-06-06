@@ -65,6 +65,19 @@ public class Practice {
         }
         return answer;
     }
+    public List<List<Integer>> levelOrderRecursive(TreeNode root) {
+        List<List<Integer>> ans=new ArrayList<>();
+        traverseBFS(root,0, ans);
+        return ans;
+    }
+
+    private void traverseBFS(TreeNode root, int level, List<List<Integer>> ans){
+        if(root == null) return;
+        if(level>ans.size())ans.add(level,new ArrayList<Integer>());
+        ans.get(level).add(root.val);
+        if(root.left!=null)traverseBFS(root.left,level+1, ans);
+        if(root.right!=null)traverseBFS(root.right,level+1, ans);
+    }
 
     private void traversePostorder(TreeNode node, List<Integer> answer) {
         if(node == null)return;
