@@ -3,22 +3,22 @@ package org.example.practice;
 public class Practice {
 
     /***
-     * Leet Code #69:Sqrt(x)
-     * Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
-     * You must not use any built-in exponent function or operator.
-     * For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
-     * Example 1:
-     * Input: x = 4
-     * Output: 2
-     * Explanation: The square root of 4 is 2, so we return 2.
-     * Example 2:
-     * Input: x = 8
-     * Output: 2
-     * Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
-     * Constraints:
-     * 0 <= x <= 231 - 1
+    Leet Code #69:Sqrt(x)
+    Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+    You must not use any built-in exponent function or operator.
+    For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
+    Example 1:
+    Input: x = 4
+    Output: 2
+    Explanation: The square root of 4 is 2, so we return 2.
+    Example 2:
+    Input: x = 8
+    Output: 2
+    Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+    Constraints:
+    0 <= x <= 231 - 1
      *
-     * */
+    */
     public int mySqrt(int x) {
         if (x < 2) return x;
 
@@ -28,7 +28,7 @@ public class Practice {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            long midSquare = (long) mid * mid;  // long to avoid overflow
+            long midSquare = (long) midmid;  // long to avoid overflow
 
             if (midSquare == x) {
                 return mid;
@@ -44,37 +44,37 @@ public class Practice {
 
 
     /**
-     * Leet Code #374
-     * We are playing the Guess Game. The game is as follows:
+    Leet Code #374
+    We are playing the Guess Game. The game is as follows:
      *
-     * I pick a number from 1 to n. You have to guess which number I picked (the number I picked stays the same throughout the game).
+    I pick a number from 1 to n. You have to guess which number I picked (the number I picked stays the same throughout the game).
      *
-     * Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+    Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
      *
-     * You call a pre-defined API int guess(int num), which returns three possible results:
+    You call a pre-defined API int guess(int num), which returns three possible results:
      *
-     * -1: Your guess is higher than the number I picked (i.e. num > pick).
-     * 1: Your guess is lower than the number I picked (i.e. num < pick).
-     * 0: your guess is equal to the number I picked (i.e. num == pick).
-     * Return the number that I picked.
-     * Example 1:
+    -1: Your guess is higher than the number I picked (i.e. num > pick).
+    1: Your guess is lower than the number I picked (i.e. num < pick).
+    0: your guess is equal to the number I picked (i.e. num == pick).
+    Return the number that I picked.
+    Example 1:
      *
-     * Input: n = 10, pick = 6
-     * Output: 6
-     * Example 2:
+    Input: n = 10, pick = 6
+    Output: 6
+    Example 2:
      *
-     * Input: n = 1, pick = 1
-     * Output: 1
-     * Example 3:
+    Input: n = 1, pick = 1
+    Output: 1
+    Example 3:
      *
-     * Input: n = 2, pick = 1
-     * Output: 1
+    Input: n = 2, pick = 1
+    Output: 1
      *
      *
-     * Constraints:
+    Constraints:
      *
-     * 1 <= n <= 231 - 1
-     * 1 <= pick <= n
+    1 <= n <= 231 - 1
+    1 <= pick <= n
      */
     public int guessNumber(int n) {
         int low = 1;
@@ -98,29 +98,29 @@ public class Practice {
     }
 
     /**
-     * LEETCODE 33
-     * There is an integer array nums sorted in ascending order (with distinct values).
+    LEETCODE 33
+    There is an integer array nums sorted in ascending order (with distinct values).
      *
-     * Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
+    Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
      *
-     * Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+    Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
      *
-     * You must write an algorithm with O(log n) runtime complexity.
+    You must write an algorithm with O(log n) runtime complexity.
      *
      *
      *
-     * Example 1:
+    Example 1:
      *
-     * Input: nums = [4,5,6,7,0,1,2], target = 0
-     * Output: 4
-     * Example 2:
+    Input: nums = [4,5,6,7,0,1,2], target = 0
+    Output: 4
+    Example 2:
      *
-     * Input: nums = [4,5,6,7,0,1,2], target = 3
-     * Output: -1
-     * Example 3:
+    Input: nums = [4,5,6,7,0,1,2], target = 3
+    Output: -1
+    Example 3:
      *
-     * Input: nums = [1], target = 0
-     * Output: -1
+    Input: nums = [1], target = 0
+    Output: -1
      */
     public int search(int[] nums, int target) {
 
@@ -152,26 +152,26 @@ public class Practice {
     }
 
     /**
-     * LeetCode #278
-     * <a href="https://leetcode.com/problems/first-bad-version/description/">...</a>
-     * Example 1:
+    LeetCode #278
+    <a href="https://leetcode.com/problems/first-bad-version/description/">...</a>
+    Example 1:
      *
-     * Input: n = 5, bad = 4
-     * Output: 4
-     * Explanation:
-     * call isBadVersion(3) -> false
-     * call isBadVersion(5) -> true
-     * call isBadVersion(4) -> true
-     * Then 4 is the first bad version.
-     * Example 2:
+    Input: n = 5, bad = 4
+    Output: 4
+    Explanation:
+    call isBadVersion(3) -> false
+    call isBadVersion(5) -> true
+    call isBadVersion(4) -> true
+    Then 4 is the first bad version.
+    Example 2:
      *
-     * Input: n = 1, bad = 1
-     * Output: 1
+    Input: n = 1, bad = 1
+    Output: 1
      *
      *
-     * Constraints:
+    Constraints:
      *
-     * 1 <= bad <= n <= 231 - 1
+    1 <= bad <= n <= 231 - 1
      *
      *
      *
@@ -192,18 +192,18 @@ public class Practice {
     }
 
     /**
-     * Leet Code #162
-     * <a href="https://leetcode.com/problems/find-peak-element/description/">...</a>
-     * Example 1:
+    Leet Code #162
+    <a href="https://leetcode.com/problems/find-peak-element/description/">...</a>
+    Example 1:
      *
-     * Input: nums = [1,2,3,1]
-     * Output: 2
-     * Explanation: 3 is a peak element and your function should return the index number 2.
-     * Example 2:
+    Input: nums = [1,2,3,1]
+    Output: 2
+    Explanation: 3 is a peak element and your function should return the index number 2.
+    Example 2:
      *
-     * Input: nums = [1,2,1,3,5,6,4]
-     * Output: 5
-     * Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
+    Input: nums = [1,2,1,3,5,6,4]
+    Output: 5
+    Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
      *
      *
      */
@@ -223,11 +223,11 @@ public class Practice {
     }
 
     /**
-     * LeetCode #153
-     * <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/">...</a>
-     * Input: nums = [3,4,5,1,2]
-     * Output: 1
-     * Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+    LeetCode #153
+    <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/">...</a>
+    Input: nums = [3,4,5,1,2]
+    Output: 1
+    Explanation: The original array was [1,2,3,4,5] rotated 3 times.
      */
     public int findMin(int[] nums) {
         int l=0;
@@ -269,8 +269,8 @@ public class Practice {
 
 
     /**
-     * LeetCode #852
-     * <a href="https://leetcode.com/problems/peak-index-in-a-mountain-array/">...</a>
+    LeetCode #852
+    <a href="https://leetcode.com/problems/peak-index-in-a-mountain-array/">...</a>
      *
      */
     public int peakIndexInMountainArray(int[] arr) {
@@ -285,8 +285,8 @@ public class Practice {
     }
 
     /**
-     * LeetCode #540
-     * <a href="https://leetcode.com/problems/single-element-in-a-sorted-array/description/"></a>
+    LeetCode #540
+    <a href="https://leetcode.com/problems/single-element-in-a-sorted-array/description/"></a>
      */
     public int singleNonDuplicate(int[] nums) {
 

@@ -11,11 +11,11 @@ public class TwoPointers {
     }
 
     /**
-     * Used Two pointers same direction approach here,
-     * One pointer will go linearly and fastly to find uniques
-     * Second pointer will go for placement
-     * @param nums
-     * @return
+    Used Two pointers same direction approach here,
+    One pointer will go linearly and fastly to find uniques
+    Second pointer will go for placement
+    @param nums
+    @return
      */
     public static int removeDuplicates(int[] nums) {
         if(nums.length == 0) return 0;
@@ -63,12 +63,12 @@ public class TwoPointers {
         return slow;
     }
     /**
-     * Here invariance is that charachters in needle should be occuring in haystack exactly
-     * so boundary between slow and fast should match exactly with needle
-     * so we go on with sliding window way by taking window size as needle length
-     * if substring window matches our invariant , we return slow position, else we move window
-     * to look for window which makes invariant pass
-     * **/
+    Here invariance is that charachters in needle should be occuring in haystack exactly
+    so boundary between slow and fast should match exactly with needle
+    so we go on with sliding window way by taking window size as needle length
+    if substring window matches our invariant , we return slow position, else we move window
+    to look for window which makes invariant pass
+    **/
     public static int strStr(String haystack, String needle) {
         if(haystack.isEmpty())return -1;
         for (int slow=0,fast=needle.length();fast<=haystack.length();fast++,slow++){
