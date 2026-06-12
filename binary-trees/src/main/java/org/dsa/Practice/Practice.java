@@ -97,6 +97,23 @@ public class Practice {
         return ans;
     }
 
+    /**
+     * LeetCode 101 Symmetric Tree
+     * @param root which is tree node
+     * @return boolean
+     */
+    public boolean isSymmetric(TreeNode root) {
+        return areTheySymmetric(root.left, root.right);
+    }
+
+    private boolean areTheySymmetric(TreeNode left, TreeNode right){
+        if(left == null && right == null) return true;
+        if(left == null || right == null) return false;
+        else
+            return left.val == right.val
+                && areTheySymmetric(left.right, right.left)
+                && areTheySymmetric(left.left, right.right);
+    }
     private void traverseBFS(TreeNode root, int level, List<List<Integer>> ans){
         if(root == null) return;
         if(level>ans.size())ans.add(level,new ArrayList<Integer>());
