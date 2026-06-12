@@ -3,6 +3,7 @@ package org.dsa.Practice;
 import java.util.*;
 
 public class Practice {
+    private boolean ans=false;
 
     /**
       Leet code #144
@@ -73,13 +74,27 @@ public class Practice {
 
     public int maxDepth(TreeNode root) {
         if(root == null) return 0;
-        return goBFS(root, 1);
+        int leftMaxDepth=maxDepth(root);
+        int rightMaxDepth=maxDepth(root);
+        return Math.max(leftMaxDepth, rightMaxDepth);
     }
-    private int goBFS(TreeNode node, int level){
-        int leftMaxDepth=-1, rightMaxDepth=-1;
-        if(node.left !=null) leftMaxDepth=goBFS(node.left, level+1);
-        if(node.right !=null) rightMaxDepth=goBFS(node.right, level+1);
-        return Math.max(Math.max(level, leftMaxDepth), rightMaxDepth);
+
+    /**
+     * LeetCode 112 PathSum
+     * @return boolean
+     */
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null) return false;
+        return traverse(root, targetSum, 0);
+    }
+    private boolean traverse(TreeNode node, int targetSum, int pathSum){
+        pathSum+= node.val;
+        if(node.left==null&&node.right==null&&pathSum==targetSum){
+            ans=true;
+        }
+        if(node.left!=null)traverse(node.left, targetSum, pathSum+node.val);
+        if(node.right!=null)traverse(node.right, targetSum, pathSum+node.val);
+        return ans;
     }
 
     private void traverseBFS(TreeNode root, int level, List<List<Integer>> ans){
