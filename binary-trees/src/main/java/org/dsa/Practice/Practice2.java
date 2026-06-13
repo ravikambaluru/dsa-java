@@ -2,6 +2,8 @@ package org.dsa.Practice;
 
 public class Practice2 {
 
+    private boolean ans=true;
+
     /**
      * LeetCode 226 invert tree
      * @param root node
@@ -31,5 +33,23 @@ public class Practice2 {
                     isSameTree(p.left,q.left)&&
                     isSameTree(p.right, q.right);
         }
+    }
+
+    /**
+     * LeetCode 110 Balanced binary tree
+     *
+     */
+    public boolean isBalanced(TreeNode root) {
+        this.ans= true;
+        calculateDepth(root);
+        return  ans;
+    }
+    private int calculateDepth(TreeNode node){
+        if(node==null) return 0;
+        int lefDepth=calculateDepth(node.left);
+        int rightDepth=calculateDepth(node.right);
+        int balanceFactor=lefDepth-rightDepth;
+        if(balanceFactor>1)this.ans=false;
+        return Math.max(lefDepth, rightDepth)+1;
     }
 }
