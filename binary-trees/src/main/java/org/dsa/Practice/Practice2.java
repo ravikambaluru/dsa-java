@@ -52,4 +52,24 @@ public class Practice2 {
         if(balanceFactor>1)this.ans=false;
         return Math.max(lefDepth, rightDepth)+1;
     }
+
+    /**
+     * LeetCode 543 Diameter of Tree
+     * @param root
+     * @return
+     */
+    private int diameter=0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        traverseTree(root);
+        return diameter;
+    }
+
+    private int traverseTree(TreeNode node) {
+        if(node==null) return 0;
+        int leftDepth = traverseTree(node.left);
+        int rightDepth = traverseTree(node.right);
+        int currentDepth=leftDepth+rightDepth;
+        diameter=Math.max(currentDepth, diameter);
+        return 1+(Math.max(leftDepth,rightDepth));
+    }
 }
