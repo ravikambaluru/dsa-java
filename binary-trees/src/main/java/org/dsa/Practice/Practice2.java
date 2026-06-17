@@ -1,5 +1,8 @@
 package org.dsa.Practice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Practice2 {
 
     private boolean ans=true;
@@ -71,5 +74,27 @@ public class Practice2 {
         int currentDepth=leftDepth+rightDepth;
         diameter=Math.max(currentDepth, diameter);
         return 1+(Math.max(leftDepth,rightDepth));
+    }
+
+    /**
+     *
+     103. Binary Tree Zigzag Level Order Traversal
+     */
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> ans=new ArrayList<>();
+        traverseZigZag(root, 1, ans);
+        return ans;
+    }
+
+    private void traverseZigZag(TreeNode node, int level, List<List<Integer>> ans) {
+        if(node == null) return;
+        if(ans.size()<level){
+            ArrayList<Integer> levelArray = new ArrayList<Integer>();
+            ans.add(level-1, levelArray);
+        }
+        if(level%2==0)ans.get(level-1).addFirst(node.val);
+        else ans.get(level-1).addLast(node.val);
+        traverseZigZag(node.left, level+1, ans);
+        traverseZigZag(node.right, level+1, ans);
     }
 }
