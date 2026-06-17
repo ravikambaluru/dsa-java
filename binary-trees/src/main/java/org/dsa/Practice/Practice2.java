@@ -97,4 +97,30 @@ public class Practice2 {
         traverseZigZag(node.left, level+1, ans);
         traverseZigZag(node.right, level+1, ans);
     }
+
+    /**
+     * LeetCode 572 Subtree of another
+     * Algorithm:
+     * Traverse using Pre-order
+     * Serialize both tree into string
+     * Check if one string contains another
+     * @param root
+     * @param subRoot
+     * @return
+     */
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        StringBuilder rootHash= traverseAndSerializeTree(root,new StringBuilder());
+        StringBuilder subRootHash= traverseAndSerializeTree(subRoot, new StringBuilder());
+        return rootHash.toString().contains(subRootHash.toString());
+    }
+    private StringBuilder traverseAndSerializeTree(TreeNode node, StringBuilder stringBuilder){
+        if(node==null){
+            stringBuilder.append(";null");
+            return stringBuilder;
+        }
+        stringBuilder.append(";").append(node.val);
+        traverseAndSerializeTree(node.left, stringBuilder);
+        traverseAndSerializeTree(node.right, stringBuilder);
+        return stringBuilder;
+    }
 }
