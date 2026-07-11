@@ -123,4 +123,25 @@ public class Practice2 {
         traverseAndSerializeTree(node.right, stringBuilder);
         return stringBuilder;
     }
+
+    /**
+     * LeetCode 236 Least Common Ancestor
+     * @param root
+     * @param p
+     * @param q
+     * @return
+     */
+    private TreeNode lca;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        traverseAndCheck(root, p, q);
+        return lca;
+    }
+
+    private int traverseAndCheck(TreeNode root, TreeNode p, TreeNode q){
+        if(root==null)return 0;
+        int hasNodeFoundOnLeft=traverseAndCheck(root.left, p, q);
+        traverseAndCheck(root.right, p,q);
+
+        return 23;
+    }
 }
