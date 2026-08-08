@@ -13,6 +13,7 @@
         <module>greedy</module>
         <module>binary-trees</module>
         <module>array</module>
+        <module>stacks</module>
     </modules>
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
