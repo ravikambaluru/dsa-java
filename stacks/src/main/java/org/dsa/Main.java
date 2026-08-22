@@ -47,4 +47,29 @@ public class Main {
         return output.toString();
     }
 
+    public int evalRPN(String[] tokens) {
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        for (String token : tokens) {
+            if (token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")) {
+                Integer a = stack.pop();
+                Integer b = stack.pop();
+                Integer result = computeResult(token, b, a);
+                stack.push(result);
+            } else {
+                stack.push(Integer.parseInt(token));
+            }
+        }
+
+        return stack.pop();
+    }
+
+    private static Integer computeResult(String token, Integer b, Integer a) {
+        return switch (token) {
+            case "+" -> b + a;
+            case "-" -> b - a;
+            case "*" -> b * a;
+            default -> b / a;
+        };
+    }
+
 }

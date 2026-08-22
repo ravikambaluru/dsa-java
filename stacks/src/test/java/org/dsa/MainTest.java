@@ -2,7 +2,7 @@ package org.dsa;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
     private Main main=new Main();
@@ -74,5 +74,11 @@ class MainTest {
     void removeOuterParentheses() {
         String actual = main.removeOuterParentheses("(()())(())(()(()))");
         assertEquals("()()()()(())",actual);
+    }
+
+    @Test
+    void evalRPN() {
+        String[] input = new String[]{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+        assertEquals(6, main.evalRPN(input));
     }
 }
