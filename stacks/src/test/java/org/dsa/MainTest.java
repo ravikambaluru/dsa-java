@@ -2,6 +2,7 @@ package org.dsa;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
@@ -80,5 +81,13 @@ class MainTest {
     void evalRPN() {
         String[] input = new String[]{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
         assertEquals(6, main.evalRPN(input));
+    }
+
+    @Test
+    void nextGreaterElement() {
+        int[] nums1 = new int[]{1, 3, 5, 2, 4};
+        int[] nums2 = new int[]{6, 5, 4, 3, 2, 1, 7};
+        int[] result = main.nextGreaterElement(nums1, nums2);
+        assertArrayEquals(new int[]{7, 7, 7, 7, 7}, result);
     }
 }

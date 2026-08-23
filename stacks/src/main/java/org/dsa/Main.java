@@ -1,6 +1,8 @@
 package org.dsa;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -70,6 +72,25 @@ public class Main {
             case "*" -> b * a;
             default -> b / a;
         };
+    }
+
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> ngeMap = populateNgeElements(nums2);
+        return Arrays.stream(nums1).map(ngeMap::get).toArray();
+    }
+
+    private static HashMap<Integer, Integer> populateNgeElements(int[] nums2) {
+        ArrayDeque<Integer> ngeStack = new ArrayDeque<>();
+        HashMap<Integer, Integer> ngeMap = new HashMap<>();
+        for (int i = nums2.length - 1; i >= 0; i--) {
+            int currentEl = nums2[i];
+            while (!ngeStack.isEmpty() && ngeStack.peek() <= currentEl) {
+                ngeStack.pop();
+            }
+            ngeMap.put(currentEl, ngeStack.isEmpty() ? -1 : ngeStack.peek());
+            ngeStack.push(currentEl);
+        }
+        return ngeMap;
     }
 
 }
