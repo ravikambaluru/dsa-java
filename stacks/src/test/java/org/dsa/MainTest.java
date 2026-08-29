@@ -104,4 +104,11 @@ class MainTest {
         int[] result = main.nextGreaterElements(ints);
         assertArrayEquals(new int[]{2, -1, 2}, result);
     }
+
+    @Test
+    void orangesRotting() {
+        int[][] data = {{1, 1, 1}, {1, 1, 0}, {0, 1, 1}};
+        int result = main.orangesRotting(data);
+        assertEquals(4, result);
+    }
 }

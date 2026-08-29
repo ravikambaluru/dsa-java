@@ -125,4 +125,56 @@ public class Main {
         return Arrays.copyOfRange(ans, 0, nums.length);
     }
 
+    public int orangesRotting(int[][] grid) {
+        ArrayDeque<Integer[]> queue = new ArrayDeque<>();
+        int minutes = 0;
+        int maxMin = minutes;
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[0].length; col++) {
+                if (grid[row][col] == 2) {
+                    queue.offer(new Integer[]{row, col, minutes});
+                }
+            }
+        }
+        // loop queue and mark adjacent indices as rotten(2) in 4 directions
+        while (!queue.isEmpty()) {
+            Integer[] rottenIndex = queue.poll();
+            Integer row = rottenIndex[0];
+            Integer col = rottenIndex[1];
+            Integer minute = rottenIndex[2];
+
+            // check on left if its not rotten grid[row][col-1]
+            if (col > 0 && grid[row][col - 1] == 1) {
+                grid[row][col - 1] = 2;
+                queue.offer(new Integer[]{row, col - 1, minute + 1});
+            }
+            // check on top if its rotten grid[row-1][col]
+            if (row > 0 && grid[row - 1][col] == 1) {
+                grid[row - 1][col] = 2;
+                queue.offer(new Integer[]{row - 1, col, minute + 1});
+            }
+            // check on right if its rotten grid[row][col+1]
+            if (col < grid[0].length - 1 && grid[row][col + 1] == 1) {
+                grid[row][col + 1] = 2;
+                queue.offer(new Integer[]{row, col + 1, minute + 1});
+            }
+            // check on bottom if its rotten grid[row+1][col]
+            if (row < grid.length - 1 && grid[row + 1][col] == 1) {
+                grid[row + 1][col] = 2;
+                queue.offer(new Integer[]{row + 1, col, minute + 1});
+            }
+            maxMin = Math.max(minutes, minute);
+        }
+
+        // if any unrotten oranges exists return -1;
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[0].length; col++) {
+                if (grid[row][col] == 1) return -1;
+            }
+        }
+
+
+        return maxMin;
+    }
+
 }
