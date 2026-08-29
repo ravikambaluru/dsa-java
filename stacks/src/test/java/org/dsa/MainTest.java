@@ -90,4 +90,18 @@ class MainTest {
         int[] result = main.nextGreaterElement(nums1, nums2);
         assertArrayEquals(new int[]{7, 7, 7, 7, 7}, result);
     }
+
+    @Test
+    void dailyTemperatures() {
+        int[] temp = new int[]{30, 40, 50, 60};
+        int[] actual = main.dailyTemperatures(temp);
+        assertArrayEquals(new int[]{1, 1, 1, 0}, actual);
+    }
+
+    @Test
+    void nextGreaterElements() {
+        int[] ints = {1, 2, 1};
+        int[] result = main.nextGreaterElements(ints);
+        assertArrayEquals(new int[]{2, -1, 2}, result);
+    }
 }

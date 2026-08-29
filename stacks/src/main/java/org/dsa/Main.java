@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -91,6 +92,37 @@ public class Main {
             ngeStack.push(currentEl);
         }
         return ngeMap;
+    }
+
+    public int[] dailyTemperatures(int[] temperatures) {
+        int[] ans = new int[temperatures.length];
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < temperatures.length; i++) {
+            int currentTemperature = temperatures[i];
+            while (!stack.isEmpty() && currentTemperature > temperatures[stack.peek()]) {
+                Integer popped = stack.pop();
+                ans[popped] = i - popped;
+            }
+            stack.push(i);
+        }
+        return ans;
+    }
+
+    public int[] nextGreaterElements(int[] nums) {
+        int[] linearArray = new int[nums.length * 2];
+        int[] ans = new int[nums.length * 2];
+        System.arraycopy(nums, 0, linearArray, 0, nums.length);
+        System.arraycopy(nums, 0, linearArray, nums.length, nums.length);
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        for (int i = linearArray.length - 1; i >= 0; i--) {
+            int currentElement = linearArray[i];
+            while (!stack.isEmpty() && currentElement >= stack.peek()) {
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(currentElement);
+        }
+        return Arrays.copyOfRange(ans, 0, nums.length);
     }
 
 }
