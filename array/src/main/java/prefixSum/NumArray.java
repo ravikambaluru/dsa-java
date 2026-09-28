@@ -1,5 +1,7 @@
 package prefixSum;
 
+import java.util.HashMap;
+
 public class NumArray {
     private int[] nums;
 //    public NumArray(int[] nums) {
@@ -32,6 +34,41 @@ public class NumArray {
             maxAltitude = Math.max(maxAltitude, runningList[i + 1]);
         }
         return maxAltitude;
+    }
+
+    public int subarraySum(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int runningSum = 0, count = 0;
+        for (int num : nums) {
+            runningSum += num;
+            int delta = runningSum - k;
+            if (map.containsKey(delta)) {
+                Integer occurrences = map.get(delta);
+                count += occurrences;
+
+            }
+            map.put(runningSum, map.getOrDefault(runningSum, 0) + 1);
+
+        }
+        return count;
+    }
+
+    public int subarraysDivByK(int[] nums, int k) {
+        int count = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int runningSum = 0;
+
+        for (int num : nums) {
+            runningSum += num;
+            int remainder = runningSum % k;
+            if (map.containsKey(remainder)) {
+                count += map.get(remainder);
+            }
+            map.put(remainder, map.getOrDefault(remainder, 0) + 1);
+        }
+        return count;
     }
 
 }
